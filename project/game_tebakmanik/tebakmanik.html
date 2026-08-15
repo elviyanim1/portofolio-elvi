@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tebak Manik Sempoa</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- TOMBOL KEMBALI KE PORTFOLIO -->
+    <a href="../../index.html" class="portfolio-back">
+        ← back
+    </a>
+
+    <!--HALAMAN UTAMA -->
+    <div id="homePage" class="page">
+
+        <div class="container">
+
+            <h1>🧮 Tebak Manik</h1>
+            <p class="subtitle">
+                Seberapa cepat kamu mengenali angka dari manik sempoa?
+            </p>
+
+            <div class="level-container">
+
+                <button class="level-card" onclick="selectLevel('easy')">
+                    <span class="level-icon">🟢</span>
+                    <h2>Easy</h2>
+                    <p>Gambar tetap tampil sampai kamu menjawab.</p>
+                </button>
+
+                <button class="level-card" onclick="selectLevel('medium')">
+                    <span class="level-icon">🟡</span>
+                    <h2>Medium</h2>
+                    <p>Atur berapa lama gambar akan ditampilkan.</p>
+                </button>
+
+                <button class="level-card" onclick="selectLevel('custom')">
+                    <span class="level-icon">🔵</span>
+                    <h2>Custom</h2>
+                    <p>Atur jumlah soal dan durasi gambar.</p>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!--PENGATURAN GAME -->
+    <div id="settingPage" class="page hidden">
+
+        <div class="container setting-container">
+
+            <button class="back-button" onclick="goHome()">
+                ← Kembali
+            </button>
+
+            <h1 id="settingTitle">Medium</h1>
+
+            <!-- Setting Medium -->
+            <div id="mediumSetting" class="setting-box hidden">
+
+                <label>
+                    Durasi gambar
+                </label>
+
+                <select id="mediumTime">
+                    <option value="3">3 detik</option>
+                    <option value="5" selected>5 detik</option>
+                    <option value="10">10 detik</option>
+                    <option value="15">15 detik</option>
+                    <option value="30">30 detik</option>
+                </select>
+
+            </div>
+
+
+            <!-- Setting Custom -->
+            <div id="customSetting" class="setting-box hidden">
+
+                <label>
+                    Jumlah soal
+                </label>
+
+                <select id="questionCount">
+                    <option value="5">5 soal</option>
+                    <option value="10">10 soal</option>
+                    <option value="20">20 soal</option>
+                    <option value="30">30 soal</option>
+                    <option value="50">50 soal</option>
+                    <option value="99">99 soal</option>
+                </select>
+
+
+                <label>
+                    Durasi gambar
+                </label>
+
+                <select id="customTime">
+                     <option value="2"> detik</option>
+                    <option value="3">3 detik</option>
+                    <option value="5" selected>5 detik</option>
+                    <option value="10">10 detik</option>
+                    <option value="15">15 detik</option>
+                    <option value="30">30 detik</option>
+                </select>
+
+            </div>
+
+
+            <button class="start-button" onclick="startGame()">
+                Mulai Game
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!--HALAMAN GAME-->
+    <div id="gamePage" class="page hidden">
+
+        <div class="container game-container">
+
+            <div class="game-header">
+
+                <span id="questionNumber">
+                    Soal 1 / 5
+                </span>
+
+                <span id="score">
+                    ⭐ 0
+                </span>
+
+            </div>
+
+
+            <div id="timerContainer" class="timer-container hidden">
+                <span id="timer">5</span>
+            </div>
+
+
+            <div class="image-container">
+
+                <img
+                    id="questionImage"
+                    src=""
+                    alt="Gambar sempoa"
+                >
+
+            </div>
+
+
+            <div id="answerSection">
+
+                <h2>Berapa nilainya?</h2>
+
+                <input
+                    type="number"
+                    id="answerInput"
+                    placeholder="Masukkan jawaban"
+                    autocomplete="off"
+                >
+
+                <button
+                    class="answer-button"
+                    onclick="checkAnswer()"
+                >
+                    Jawab
+                </button>
+
+            </div>
+
+
+            <div id="feedback" class="feedback hidden"></div>
+
+            
+            <button
+                id="nextButton"
+                class="next-button hidden"
+                onclick="nextQuestion()"
+            >
+                Lanjut →
+            </button>
+
+            <button
+                id="finishButton"
+                class="finish-button"
+                onclick="finishGame()"
+            >
+                Selesai
+            </button>
+        </div>
+
+    </div>
+
+
+    <!--HALAMAN HASIL-->
+    <div id="resultPage" class="page hidden">
+
+        <div class="container result-container">
+
+            <h1>🎉 Permainan Selesai!</h1>
+
+            <div class="result-score">
+
+                <span id="finalScore">
+                    0
+                </span>
+
+                <small>Score</small>
+
+            </div>
+
+            <div class="result-detail">
+
+                <div>
+                    <strong id="correctCount">0</strong>
+                    <span>Benar</span>
+                </div>
+
+                <div>
+                    <strong id="wrongCount">0</strong>
+                    <span>Salah</span>
+                </div>
+
+                <div>
+                    <strong id="accuracy">0%</strong>
+                    <span>Akurasi</span>
+                </div>
+
+            </div>
+
+
+            <button
+                class="start-button"
+                onclick="restartGame()"
+            >
+                Main Lagi
+            </button>
+
+
+            <button
+                class="back-button result-back"
+                onclick="goHome()"
+            >
+                Kembali ke Menu
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="game.js"></script>
+
+</body>
+
+</html>
+
