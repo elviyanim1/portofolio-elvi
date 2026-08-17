@@ -302,12 +302,9 @@
 
     </div>
 
-
-
     <!--HALAMAN GAME-->
 
     <div id="gamePage" class="page hidden">
-
         <div class="container game-container">
 
 
@@ -325,10 +322,7 @@
 
             </div>
 
-
-
             <!-- TIMER -->
-
             <div
                 id="timerContainer"
                 class="timer-container hidden"
@@ -337,64 +331,45 @@
                 <span id="timer">
                     5
                 </span>
-
             </div>
-
-
 
             <!-- GAMBAR SEMPOA -->
 
             <div class="image-container">
-
                 <img
                     id="questionImage"
                     src=""
-                    alt="Gambar sempoa"
-                >
-
+                    alt="Gambar sempoa">
             </div>
 
-
-
             <!-- INPUT JAWABAN -->
-
             <div id="answerSection">
 
                 <h2>
                     Berapa nilainya?
                 </h2>
 
-
                 <input
                     type="number"
                     id="answerInput"
                     placeholder="Masukkan jawaban"
-                    autocomplete="off"
-                >
+                    autocomplete="off">
 
 
                 <button
                     class="answer-button"
-                    onclick="checkAnswer()"
-                >
+                    onclick="checkAnswer()">
                     Jawab
                 </button>
-
             </div>
 
-
-
             <!-- FEEDBACK -->
-
             <div
                 id="feedback"
                 class="feedback hidden"
             ></div>
 
-
-
             <!-- NEXT -->
-
             <button
                 id="nextButton"
                 class="next-button hidden"
@@ -403,10 +378,7 @@
                 Lanjut →
             </button>
 
-
-
             <!-- FINISH -->
-
             <button
                 id="finishButton"
                 class="finish-button"
@@ -414,23 +386,17 @@
             >
                 Selesai
             </button>
-
         </div>
-
     </div>
 
 
 
     <!-- HALAMAN HASIL-->
-
     <div id="resultPage" class="page hidden">
-
         <div class="container result-container">
-
             <h1>
                 🎉 Permainan Selesai!
             </h1>
-
 
             <div class="result-score">
 
@@ -441,14 +407,10 @@
                 <small>
                     Score
                 </small>
-
             </div>
 
-
             <div class="result-detail">
-
                 <div>
-
                     <strong id="correctCount">
                         0
                     </strong>
@@ -456,12 +418,9 @@
                     <span>
                         Benar
                     </span>
-
                 </div>
 
-
                 <div>
-
                     <strong id="wrongCount">
                         0
                     </strong>
@@ -469,12 +428,9 @@
                     <span>
                         Salah
                     </span>
-
                 </div>
 
-
                 <div>
-
                     <strong id="accuracy">
                         0%
                     </strong>
@@ -482,37 +438,29 @@
                     <span>
                         Akurasi
                     </span>
-
                 </div>
-
             </div>
 
 
             <button
                 class="start-button"
-                onclick="restartGame()"
-            >
+                onclick="restartGame()">
                 Main Lagi
             </button>
 
 
             <button
                 class="back-button result-back"
-                onclick="goHome()"
-            >
+                onclick="goHome()">
                 Kembali ke Menu
             </button>
-
         </div>
-
     </div>
 
 
 
     <!-- JAVASCRIPT -->
-
     <script src="game.js"></script>
-
+    
 </body>
-
 </html>
