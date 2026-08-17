@@ -16,6 +16,9 @@ select {
     font-family: inherit;
 }
 
+
+/*BACK TO PORTFOLIO */
+
 .portfolio-back {
     position: fixed;
     top: 25px;
@@ -32,17 +35,24 @@ select {
     border: 1px solid #ddd;
 
     transition: 0.2s;
+
+    z-index: 10;
 }
 
 .portfolio-back:hover {
     transform: translateX(-3px);
 }
 
+
+/* GENERAL */
+
 .page {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 30px 20px;
 }
 
@@ -67,30 +77,46 @@ h1 {
 }
 
 
-/*LEVEL*/
+/* LEVEL */
 
 .level-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 20px;
 }
 
 .level-card {
     background: white;
+
     border: 2px solid transparent;
+
     border-radius: 20px;
+
     padding: 30px 20px;
+
     cursor: pointer;
+
     transition: 0.2s;
 }
 
 .level-card:hover {
     transform: translateY(-5px);
+
     border-color: #333;
 }
 
 .level-icon {
-    font-size: 40px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.level-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .level-card h2 {
@@ -99,6 +125,7 @@ h1 {
 
 .level-card p {
     color: #667085;
+
     line-height: 1.5;
 }
 
@@ -111,44 +138,78 @@ h1 {
 
 .back-button {
     border: none;
+
     background: transparent;
+
     cursor: pointer;
+
     font-size: 16px;
+
     margin-bottom: 30px;
 }
 
 .setting-box {
     background: white;
+
     border-radius: 20px;
+
     padding: 30px;
+
     margin: 30px 0;
 }
 
 .setting-box label {
     display: block;
+
     text-align: left;
+
     font-weight: bold;
+
     margin-bottom: 10px;
 }
 
 .setting-box select {
     width: 100%;
+
     padding: 14px;
+
     border-radius: 10px;
+
     border: 1px solid #ccc;
-    margin-bottom: 25px;
+
+    margin-bottom: 20px;
+
     font-size: 16px;
 }
 
+.setting-box p {
+    color: #667085;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+}
+
+
+/* BUTTON*/
+
 .start-button {
     width: 100%;
+
     padding: 16px;
+
     border: none;
+
     border-radius: 12px;
+
     background: #1f7a4d;
+
     color: white;
+
     font-size: 18px;
+
     font-weight: bold;
+
     cursor: pointer;
 }
 
@@ -157,7 +218,7 @@ h1 {
 }
 
 
-/*GAME*/
+/* GAME */
 
 .game-container {
     max-width: 700px;
@@ -165,34 +226,51 @@ h1 {
 
 .game-header {
     display: flex;
+
     justify-content: space-between;
+
     font-weight: bold;
+
     margin-bottom: 20px;
 }
 
 .timer-container {
     font-size: 28px;
+
     font-weight: bold;
+
     margin-bottom: 15px;
 }
 
 .image-container {
-   width: min(60vw, 400px);
+    width: min(60vw, 400px);
+
     height: min(60vw, 400px);
+
     max-width: 400px;
+
     max-height: 400px;
+
     margin: 0 auto 25px;
+
     background: white;
+
     border-radius: 20px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     overflow: hidden;
 }
 
 .image-container img {
     width: 100%;
+
     height: 100%;
+
     object-fit: contain;
 }
 
@@ -202,43 +280,73 @@ h1 {
 
 #answerInput {
     width: 100%;
+
     max-width: 350px;
+
     padding: 15px;
+
     border: 1px solid #ccc;
+
     border-radius: 10px;
+
     font-size: 18px;
+
     text-align: center;
 }
 
 .answer-button,
 .next-button {
     display: block;
+
     margin: 15px auto;
+
     padding: 14px 30px;
+
     border: none;
+
     border-radius: 10px;
+
     background: #1f7a4d;
+
     color: white;
+
     font-size: 16px;
+
     font-weight: bold;
+
     cursor: pointer;
+}
+
+.answer-button:hover,
+.next-button:hover {
+    opacity: 0.9;
 }
 
 .feedback {
     margin: 20px 0;
+
     font-size: 24px;
+
     font-weight: bold;
 }
 
 .finish-button {
     display: block;
+
     margin: 10px auto;
+
     padding: 10px 25px;
+
     border: 1px solid #ccc;
+
     border-radius: 10px;
+
     background: white;
+
     color: #555;
+
     font-size: 15px;
+
     cursor: pointer;
 }
 
@@ -247,7 +355,7 @@ h1 {
 }
 
 
-/*RESULT*/
+/* RESULT*/
 
 .result-container {
     max-width: 500px;
@@ -259,7 +367,9 @@ h1 {
 
 .result-score span {
     display: block;
+
     font-size: 70px;
+
     font-weight: bold;
 }
 
@@ -269,19 +379,26 @@ h1 {
 
 .result-detail {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 15px;
+
     margin-bottom: 30px;
 }
 
 .result-detail div {
     background: white;
+
     border-radius: 15px;
+
     padding: 20px 10px;
 }
 
 .result-detail strong {
     display: block;
+
     font-size: 25px;
 }
 
@@ -312,13 +429,22 @@ h1 {
 
     .image-container {
         width: 90vw;
+
         height: 90vw;
+
         max-width: 500px;
+
         max-height: 500px;
     }
 
     .result-detail {
         gap: 8px;
     }
-}
 
+    .portfolio-back {
+        top: 15px;
+        left: 15px;
+
+        padding: 8px 12px;
+    }
+}

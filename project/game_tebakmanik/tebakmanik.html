@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 
@@ -12,39 +11,93 @@
 </head>
 
 <body>
-<!-- TOMBOL KEMBALI KE PORTFOLIO -->
+
+    <!-- KEMBALI KE PORTFOLIO -->
     <a href="../../index.html" class="portfolio-back">
-        ← back
+        ← Back
     </a>
 
-    <!--HALAMAN UTAMA -->
+
+    <!--HALAMAN UTAMA-->
+
     <div id="homePage" class="page">
 
         <div class="container">
 
             <h1>🧮 Tebak Manik</h1>
+
             <p class="subtitle">
                 Seberapa cepat kamu mengenali angka dari manik sempoa?
             </p>
 
+
             <div class="level-container">
 
-                <button class="level-card" onclick="selectLevel('easy')">
-                    <span class="level-icon">🟢</span>
-                    <h2>Easy</h2>
-                    <p>Gambar tetap tampil sampai kamu menjawab.</p>
+                <!-- EASY -->
+
+                <button
+                    class="level-card"
+                    onclick="selectLevel('easy')"
+                >
+
+                    <span class="level-icon">
+                         <img src="img_kartumanik/easy.png" alt="Easy">
+                    </span>
+
+                    <h2>
+                        Easy
+                    </h2>
+
+                    <p>
+                        10 soal Tebak manik tanpa timer.
+                    </p>
+
                 </button>
 
-                <button class="level-card" onclick="selectLevel('medium')">
-                    <span class="level-icon">🟡</span>
-                    <h2>Medium</h2>
-                    <p>Atur berapa lama gambar akan ditampilkan.</p>
+
+                <!-- MEDIUM -->
+
+                <button
+                    class="level-card"
+                    onclick="selectLevel('medium')"
+                >
+
+                    <span class="level-icon">
+                        <img src="img_kartumanik/medium.png" alt="Medium">
+                    </span>
+
+                    <h2>
+                        Medium
+                    </h2>
+
+                    <p>
+                        20 soal dengan waktu
+                        5 detik per gambar.
+                    </p>
+
                 </button>
 
-                <button class="level-card" onclick="selectLevel('custom')">
-                    <span class="level-icon">🔵</span>
-                    <h2>Custom</h2>
-                    <p>Atur jumlah soal dan durasi gambar.</p>
+
+                <!-- CUSTOM -->
+
+                <button
+                    class="level-card"
+                    onclick="selectLevel('custom')"
+                >
+
+                    <span class="level-icon">
+                        <img src="img_kartumanik/custom.png" alt="Custom">
+                    </span>
+
+                    <h2>
+                        Custom
+                    </h2>
+
+                    <p>
+                        Atur jumlah soal dan
+                        durasi sendiri.
+                    </p>
+
                 </button>
 
             </div>
@@ -54,69 +107,194 @@
     </div>
 
 
-    <!--PENGATURAN GAME -->
+
+    <!--HALAMAN SETTING-->
+
     <div id="settingPage" class="page hidden">
 
         <div class="container setting-container">
 
-            <button class="back-button" onclick="goHome()">
+            <button
+                class="back-button"
+                onclick="goHome()"
+            >
                 ← Kembali
             </button>
 
-            <h1 id="settingTitle">Medium</h1>
 
-            <!-- Setting Medium -->
-            <div id="mediumSetting" class="setting-box hidden">
+            <h1 id="settingTitle">
+                Easy
+            </h1>
+
+
+            <!--SETTING EASY-->
+
+            <div
+                id="easySetting"
+                class="setting-box hidden"
+            >
 
                 <label>
-                    Durasi gambar
+                    Jenis Soal
                 </label>
 
-                <select id="mediumTime">
-                    <option value="3">3 detik</option>
-                    <option value="5" selected>5 detik</option>
-                    <option value="10">10 detik</option>
-                    <option value="15">15 detik</option>
-                    <option value="30">30 detik</option>
+                <select id="easyType">
+
+                    <option value="satuan">
+                        Satuan (1–9)
+                    </option>
+
+                    <option value="puluhan">
+                        Puluhan (10–99)
+                    </option>
+
+                    <option value="mix">
+                        Mix (1–99)
+                    </option>
+
                 </select>
+
+
+                <p>
+                    10 soal • Tanpa timer
+                </p>
 
             </div>
 
 
-            <!-- Setting Custom -->
-            <div id="customSetting" class="setting-box hidden">
+
+            <!-- SETTING MEDIUM-->
+
+            <div
+                id="mediumSetting"
+                class="setting-box hidden"
+            >
 
                 <label>
-                    Jumlah soal
+                    Jenis Soal
+                </label>
+
+                <select id="mediumType">
+
+                    <option value="satuan">
+                        Satuan (1–9)
+                    </option>
+
+                    <option value="puluhan">
+                        Puluhan (10–99)
+                    </option>
+
+                    <option value="mix">
+                        Mix (1–99)
+                    </option>
+
+                </select>
+
+
+                <p>
+                    20 soal • 5 detik per gambar
+                </p>
+
+            </div>
+
+
+
+            <!--SETTING CUSTOM-->
+
+            <div
+                id="customSetting"
+                class="setting-box hidden"
+            >
+
+                <label>
+                    Jenis Soal
+                </label>
+
+                <select id="customType">
+
+                    <option value="satuan">
+                        Satuan (1–9)
+                    </option>
+
+                    <option value="puluhan">
+                        Puluhan (10–99)
+                    </option>
+
+                    <option value="mix">
+                        Mix (1–99)
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Jumlah Soal
                 </label>
 
                 <select id="questionCount">
-                    <option value="5">5 soal</option>
-                    <option value="10">10 soal</option>
-                    <option value="20">20 soal</option>
-                    <option value="30">30 soal</option>
-                    <option value="50">50 soal</option>
-                    <option value="99">99 soal</option>
+
+                    <option value="10">
+                        10 soal
+                    </option>
+
+                    <option value="20">
+                        20 soal
+                    </option>
+
+                    <option value="30">
+                        30 soal
+                    </option>
+
+                    <option value="50">
+                        50 soal
+                    </option>
+
+                    <option value="99">
+                        99 soal
+                    </option>
+
                 </select>
 
 
                 <label>
-                    Durasi gambar
+                    Durasi Gambar
                 </label>
 
                 <select id="customTime">
-                     <option value="2"> detik</option>
-                    <option value="3">3 detik</option>
-                    <option value="5" selected>5 detik</option>
-                    <option value="10">10 detik</option>
-                    <option value="15">15 detik</option>
-                    <option value="30">30 detik</option>
+
+                    <option value="2">
+                        2 detik
+                    </option>
+
+                    <option value="3">
+                        3 detik
+                    </option>
+
+                    <option value="5" selected>
+                        5 detik
+                    </option>
+
+                    <option value="10">
+                        10 detik
+                    </option>
+
+                    <option value="15">
+                        15 detik
+                    </option>
+
+                    <option value="30">
+                        30 detik
+                    </option>
+
                 </select>
 
             </div>
 
 
-            <button class="start-button" onclick="startGame()">
+            <button
+                class="start-button"
+                onclick="startGame()"
+            >
                 Mulai Game
             </button>
 
@@ -125,15 +303,20 @@
     </div>
 
 
+
     <!--HALAMAN GAME-->
+
     <div id="gamePage" class="page hidden">
 
         <div class="container game-container">
 
+
+            <!-- HEADER GAME -->
+
             <div class="game-header">
 
                 <span id="questionNumber">
-                    Soal 1 / 5
+                    Soal 1 / 10
                 </span>
 
                 <span id="score">
@@ -143,10 +326,23 @@
             </div>
 
 
-            <div id="timerContainer" class="timer-container hidden">
-                <span id="timer">5</span>
+
+            <!-- TIMER -->
+
+            <div
+                id="timerContainer"
+                class="timer-container hidden"
+            >
+
+                <span id="timer">
+                    5
+                </span>
+
             </div>
 
+
+
+            <!-- GAMBAR SEMPOA -->
 
             <div class="image-container">
 
@@ -159,9 +355,15 @@
             </div>
 
 
+
+            <!-- INPUT JAWABAN -->
+
             <div id="answerSection">
 
-                <h2>Berapa nilainya?</h2>
+                <h2>
+                    Berapa nilainya?
+                </h2>
+
 
                 <input
                     type="number"
@@ -169,6 +371,7 @@
                     placeholder="Masukkan jawaban"
                     autocomplete="off"
                 >
+
 
                 <button
                     class="answer-button"
@@ -180,9 +383,18 @@
             </div>
 
 
-            <div id="feedback" class="feedback hidden"></div>
 
-            
+            <!-- FEEDBACK -->
+
+            <div
+                id="feedback"
+                class="feedback hidden"
+            ></div>
+
+
+
+            <!-- NEXT -->
+
             <button
                 id="nextButton"
                 class="next-button hidden"
@@ -191,6 +403,10 @@
                 Lanjut →
             </button>
 
+
+
+            <!-- FINISH -->
+
             <button
                 id="finishButton"
                 class="finish-button"
@@ -198,17 +414,23 @@
             >
                 Selesai
             </button>
+
         </div>
 
     </div>
 
 
-    <!--HALAMAN HASIL-->
+
+    <!-- HALAMAN HASIL-->
+
     <div id="resultPage" class="page hidden">
 
         <div class="container result-container">
 
-            <h1>🎉 Permainan Selesai!</h1>
+            <h1>
+                🎉 Permainan Selesai!
+            </h1>
+
 
             <div class="result-score">
 
@@ -216,25 +438,51 @@
                     0
                 </span>
 
-                <small>Score</small>
+                <small>
+                    Score
+                </small>
 
             </div>
+
 
             <div class="result-detail">
 
                 <div>
-                    <strong id="correctCount">0</strong>
-                    <span>Benar</span>
+
+                    <strong id="correctCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Benar
+                    </span>
+
                 </div>
 
-                <div>
-                    <strong id="wrongCount">0</strong>
-                    <span>Salah</span>
-                </div>
 
                 <div>
-                    <strong id="accuracy">0%</strong>
-                    <span>Akurasi</span>
+
+                    <strong id="wrongCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Salah
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="accuracy">
+                        0%
+                    </strong>
+
+                    <span>
+                        Akurasi
+                    </span>
+
                 </div>
 
             </div>
@@ -260,9 +508,11 @@
     </div>
 
 
+
+    <!-- JAVASCRIPT -->
+
     <script src="game.js"></script>
 
 </body>
 
 </html>
-
