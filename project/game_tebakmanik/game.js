@@ -358,29 +358,21 @@ function startImageTimer() {
 
     timerInterval =
         setInterval(() => {
-
             remainingTime--;
 
             timer.textContent =
                 remainingTime;
 
-
-
             if (remainingTime <= 0) {
-
                 clearInterval(timerInterval);
-
 
                 document
                     .getElementById("questionImage")
                     .style.visibility = "hidden";
-
             }
 
         }, 1000);
-
 }
-
 // CEK JAWABAN
 function checkAnswer() {
 
@@ -389,33 +381,22 @@ function checkAnswer() {
 
 
     // Tidak boleh kosong
-
     if (input.value.trim() === "") {
-
         alert("Silakan masukkan jawaban.");
-
         return;
-
     }
-
 
     const userAnswer =
         Number(input.value);
 
-
     const correctAnswer =
         gameQuestions[currentQuestion].answer;
 
-
     // Stop timer
-
     clearInterval(timerInterval);
 
-
     // Disable input
-
     input.disabled = true;
-
 
     document
         .querySelector(".answer-button")
@@ -423,16 +404,12 @@ function checkAnswer() {
 
     // BENAR
     if (userAnswer === correctAnswer) {
-
         correct++;
-
         // 1 soal = 10 poin
-
         score += 10;
 
-
         showFeedback(
-            `✅ BENAR! Jawabannya ${correctAnswer}`,
+            `BENAR! Jawabannya ${correctAnswer}`,
             true
         );
 
@@ -445,7 +422,7 @@ function checkAnswer() {
 
 
         showFeedback(
-            `❌ SALAH! Jawaban yang benar: ${correctAnswer}`,
+            `SALAH! Jawaban yang benar: ${correctAnswer}`,
             false
         );
 
