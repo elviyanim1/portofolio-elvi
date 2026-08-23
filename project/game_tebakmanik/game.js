@@ -15,23 +15,14 @@ for (let number = 1; number <= 99; number++) {
 
 // VARIABEL GAME
 let selectedLevel = "";
-
 let selectedType = "";
-
 let selectedTime = 0;
-
 let totalQuestions = 10;
-
 let gameQuestions = [];
-
 let currentQuestion = 0;
-
 let score = 0;
-
 let correct = 0;
-
 let wrong = 0;
-
 let timerInterval = null;
 
 // PILIH LEVEL
@@ -299,7 +290,6 @@ function showQuestion() {
 
 
     // Feedback
-
     document
         .getElementById("feedback")
         .classList.add("hidden");
@@ -419,10 +409,8 @@ function checkAnswer() {
     else {
 
         wrong++;
-
-
         showFeedback(
-            `SALAH! Jawaban yang benar: ${correctAnswer}`,
+            `oOOPSiie! Jawaban yang benar: ${correctAnswer}`,
             false
         );
 

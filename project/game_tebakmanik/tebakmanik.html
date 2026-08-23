@@ -4,16 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Tebak Manik Sempoa</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
     <!-- KEMBALI KE PORTFOLIO -->
-    <a href="../../index.html" class="portfolio-back">
+    <a href="../game_tebakmanik/tebakmanik.html" class="portfolio-back">
         ← Back
     </a>
 
@@ -47,16 +44,13 @@
                     <h2>
                         Easy
                     </h2>
-
                     <p>
                         10 soal Tebak manik tanpa timer.
                     </p>
-
                 </button>
 
 
                 <!-- MEDIUM -->
-
                 <button
                     class="level-card"
                     onclick="selectLevel('medium')"
@@ -74,7 +68,6 @@
                         20 soal dengan waktu
                         5 detik per gambar.
                     </p>
-
                 </button>
 
 
@@ -88,58 +81,41 @@
                     <span class="level-icon">
                         <img src="img_kartumanik/custom.png" alt="Custom">
                     </span>
-
                     <h2>
                         Custom
                     </h2>
-
                     <p>
                         Atur jumlah soal dan
                         durasi sendiri.
                     </p>
-
                 </button>
-
             </div>
-
         </div>
-
     </div>
 
-
-
     <!--HALAMAN SETTING-->
-
     <div id="settingPage" class="page hidden">
-
         <div class="container setting-container">
-
             <button
                 class="back-button"
                 onclick="goHome()"
             >
                 ← Kembali
             </button>
-
-
             <h1 id="settingTitle">
                 Easy
             </h1>
 
 
             <!--SETTING EASY-->
-
             <div
                 id="easySetting"
                 class="setting-box hidden"
             >
-
                 <label>
                     Jenis Soal
                 </label>
-
                 <select id="easyType">
-
                     <option value="satuan">
                         Satuan (1–9)
                     </option>
@@ -151,14 +127,11 @@
                     <option value="mix">
                         Mix (1–99)
                     </option>
-
                 </select>
-
 
                 <p>
                     10 soal • Tanpa timer
                 </p>
-
             </div>
 
 
@@ -187,20 +160,17 @@
                     <option value="mix">
                         Mix (1–99)
                     </option>
-
                 </select>
 
 
                 <p>
                     20 soal • 5 detik per gambar
                 </p>
-
             </div>
 
 
 
             <!--SETTING CUSTOM-->
-
             <div
                 id="customSetting"
                 class="setting-box hidden"
@@ -211,7 +181,6 @@
                 </label>
 
                 <select id="customType">
-
                     <option value="satuan">
                         Satuan (1–9)
                     </option>
@@ -223,16 +192,13 @@
                     <option value="mix">
                         Mix (1–99)
                     </option>
-
                 </select>
-
 
                 <label>
                     Jumlah Soal
                 </label>
 
                 <select id="questionCount">
-
                     <option value="10">
                         10 soal
                     </option>
@@ -252,7 +218,6 @@
                     <option value="99">
                         99 soal
                     </option>
-
                 </select>
 
 
@@ -261,7 +226,6 @@
                 </label>
 
                 <select id="customTime">
-
                     <option value="2">
                         2 detik
                     </option>
@@ -285,9 +249,7 @@
                     <option value="30">
                         30 detik
                     </option>
-
                 </select>
-
             </div>
 
 
@@ -297,9 +259,7 @@
             >
                 Mulai Game
             </button>
-
         </div>
-
     </div>
 
     <!--HALAMAN GAME-->
@@ -307,9 +267,7 @@
     <div id="gamePage" class="page hidden">
         <div class="container game-container">
 
-
             <!-- HEADER GAME -->
-
             <div class="game-header">
 
                 <span id="questionNumber">
@@ -327,7 +285,6 @@
                 id="timerContainer"
                 class="timer-container hidden"
             >
-
                 <span id="timer">
                     5
                 </span>
@@ -344,7 +301,6 @@
 
             <!-- INPUT JAWABAN -->
             <div id="answerSection">
-
                 <h2>
                     Berapa nilainya?
                 </h2>
