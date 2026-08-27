@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perkalian</title>
+    <link rel="stylesheet" href="style_perkalian.css">
+</head>
+
+<body>
+    <!-- KEMBALI KE PORTFOLIO -->
+    <a href="../game_perkalian/perkalian.html" class="portfolio-back">
+        ← Back
+    </a>
+
+
+    <!--HALAMAN UTAMA-->
+
+    <div id="homePage" class="page">
+        <div class="container">
+
+            <h1>Perkalian</h1>
+
+            <p class="subtitle">
+                Seberapa cepat kamu dapat menghitung perkalian?
+            </p>
+
+            <div class="level-container">
+                <!-- EASY -->
+                <button
+                    class="level-card"
+                    onclick="selectLevel('easy')"
+                >
+
+                    <span class="level-icon">
+                         <img src="img_perkalian/easy.png" alt="Easy">
+                    </span>
+
+                    <h2>
+                        Easy
+                    </h2>
+                    <p>
+                        10 soal Perkalian tanpa timer.
+                    </p>
+                </button>
+
+
+                <!-- MEDIUM -->
+                <button
+                    class="level-card"
+                    onclick="selectLevel('medium')"
+                >
+                    <span class="level-icon">
+                        <img src="img_perkalian/medium.png" alt="Medium">
+                    </span>
+
+                    <h2>
+                        Medium
+                    </h2>
+
+                    <p>
+                        20 soal dengan waktu
+                        5 detik per gambar.
+                    </p>
+                </button>
+
+
+                <!-- CUSTOM -->
+
+                <button
+                    class="level-card"
+                    onclick="selectLevel('custom')"
+                >
+
+                    <span class="level-icon">
+                        <img src="img_perkalian/custom.png" alt="Custom">
+                    </span>
+                    <h2>
+                        Custom
+                    </h2>
+                    <p>
+                        Atur jumlah soal, tipe soal dan
+                        durasi sendiri.
+                    </p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--HALAMAN SETTING-->
+    <div id="settingPage" class="page hidden">
+        <div class="container setting-container">
+            <h1 id="settingTitle">
+                Easy
+            </h1>
+
+
+            <!--SETTING EASY-->
+            <div
+                id="easySetting"
+                class="setting-box hidden"
+            >
+                <label>
+                    Jenis Soal
+                </label>
+                <select id="easyType">
+                    <option value="x2">
+                        Perkalian 2
+                    </option>
+
+                    <option value="x3">
+                        Perkalian 3
+                    </option>
+
+                    <option value="x4">
+                        Perkalian 4
+                    </option>
+
+                    <option value="x5">
+                        Perkalian 5
+                    </option>
+
+                    <option value="x6">
+                        Perkalian 6
+                    </option>
+
+                    <option value="x7">
+                        Perkalian 7
+                    </option>
+
+                    <option value="x8">
+                        Perkalian 8
+                    </option>
+
+                    <option value="x9">
+                        Perkalian 9
+                    </option>
+
+                    <option value="mix">
+                        Mix (1–9)
+                    </option>
+                </select>
+
+                <p>
+                    10 soal • Tanpa timer
+                </p>
+            </div>
+
+            <!-- SETTING MEDIUM-->
+            <div
+                id="mediumSetting"
+                class="setting-box hidden"
+            >
+
+                <label>
+                    Jenis Soal
+                </label>
+
+                <select id="mediumType">
+
+                    <option value="Satuan">
+                        Perkalian Satuan (1–9)
+                    </option>
+
+                    <option value="2dx1d">
+                        Perkalian 2d x 1d 
+                    </option>
+
+                    <option value="3dx1d">
+                        Perkalian 3d x 1d 
+                    </option>
+
+                    <option value="2dx2d">
+                        Perkalian 2d x 2d 
+                    </option>
+                </select>
+
+
+                <p>
+                    20 soal • 5 detik per gambar
+                </p>
+            </div>
+
+
+
+            <!--SETTING CUSTOM-->
+            <div
+                id="customSetting"
+                class="setting-box hidden"
+            >
+
+                <label>
+                    Jenis Soal
+                </label>
+
+                <select id="customType">
+                    <option value="x2">
+                        Perkalian 2
+                    </option>
+
+                    <option value="x3">
+                        Perkalian 3
+                    </option>
+
+                    <option value="x4">
+                        Perkalian 4
+                    </option>
+
+                    <option value="x5">
+                        Perkalian 5
+                    </option>
+
+                    <option value="x6">
+                        Perkalian 6
+                    </option>
+
+                    <option value="x7">
+                        Perkalian 7
+                    </option>
+
+                    <option value="x8">
+                        Perkalian 8
+                    </option>
+
+                    <option value="x9">
+                        Perkalian 9
+                    </option>
+
+                    <option value="mix">
+                        Mix (1–9)
+                    </option>
+
+                    <option value="2dx1d">
+                        Perkalian 2d x 1d 
+                    </option>
+
+                    <option value="3dx1d">
+                        Perkalian 3d x 1d 
+                    </option>
+
+                    <option value="2dx2d">
+                        Perkalian 2d x 2d 
+                    </option>
+                </select>
+
+                <label>
+                    Jumlah Soal
+                </label>
+
+                <select id="questionCount">
+                    <option value="10">
+                        10 soal
+                    </option>
+
+                    <option value="20">
+                        20 soal
+                    </option>
+
+                    <option value="30">
+                        30 soal
+                    </option>
+
+                    <option value="50">
+                        50 soal
+                    </option>
+
+                    <option value="99">
+                        99 soal
+                    </option>
+                </select>
+
+
+                <label>
+                    Durasi Gambar
+                </label>
+
+                <select id="customTime">
+                    <option value="2">
+                        2 detik
+                    </option>
+
+                    <option value="3">
+                        3 detik
+                    </option>
+
+                    <option value="5" selected>
+                        5 detik
+                    </option>
+
+                    <option value="10">
+                        10 detik
+                    </option>
+
+                    <option value="15">
+                        15 detik
+                    </option>
+
+                    <option value="30">
+                        30 detik
+                    </option>
+                </select>
+            </div>
+
+
+            <button
+                class="start-button"
+                onclick="startGame()"
+            >
+                Mulai Game
+            </button>
+        </div>
+    </div>
+
+    <!--HALAMAN GAME-->
+
+    <div id="gamePage" class="page hidden">
+        <div class="container game-container">
+
+            <!-- HEADER GAME -->
+            <div class="game-header">
+
+                <span id="questionNumber">
+                    Soal 1 / 10
+                </span>
+
+                <span id="score">
+                    ⭐ 0
+                </span>
+
+            </div>
+
+            <!-- TIMER -->
+            <div
+                id="timerContainer"
+                class="timer-container hidden"
+            >
+                <span id="timer">
+                    5
+                </span>
+            </div>
+
+            <!-- GAMBAR SEMPOA -->
+
+            <div class="image-container">
+            <div id="questionText"></div>
+            </div>
+
+            <!-- INPUT JAWABAN -->
+            <div id="answerSection">
+                <h2>
+                    Berapa hasilnya?
+                </h2>
+
+                <input
+                    type="number"
+                    id="answerInput"
+                    placeholder="Masukkan jawaban"
+                    autocomplete="off">
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkAnswer()">
+                    Jawab
+                </button>
+            </div>
+
+            <!-- FEEDBACK -->
+            <div
+                id="feedback"
+                class="feedback hidden"
+            ></div>
+
+            <!-- NEXT -->
+            <button
+                id="nextButton"
+                class="next-button hidden"
+                onclick="nextQuestion()"
+            >
+                Lanjut →
+            </button>
+
+            <!-- FINISH -->
+            <button
+                id="finishButton"
+                class="finish-button"
+                onclick="finishGame()"
+            >
+                Selesai
+            </button>
+        </div>
+    </div>
+
+
+
+    <!-- HALAMAN HASIL-->
+    <div id="resultPage" class="page hidden">
+        <div class="container result-container">
+            <h1>
+                🎉 Permainan Selesai!
+            </h1>
+
+            <div class="result-score">
+
+                <span id="finalScore">
+                    0
+                </span>
+
+                <small>
+                    Score
+                </small>
+            </div>
+
+            <div class="result-detail">
+                <div>
+                    <strong id="correctCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Benar
+                    </span>
+                </div>
+
+                <div>
+                    <strong id="wrongCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Salah
+                    </span>
+                </div>
+
+                <div>
+                    <strong id="accuracy">
+                        0%
+                    </strong>
+
+                    <span>
+                        Akurasi
+                    </span>
+                </div>
+            </div>
+
+
+            <button
+                class="start-button"
+                onclick="restartGame()">
+                Main Lagi
+            </button>
+
+
+            <button
+                class="back-button result-back"
+                onclick="goHome()">
+                Kembali ke Menu
+            </button>
+        </div>
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+    <script src="perkalian.js"></script>
+    
+</body>
+</html>
