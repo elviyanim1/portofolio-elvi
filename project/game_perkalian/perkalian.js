@@ -107,7 +107,7 @@ function startGame() {
     // MEDIUM
     else if (currentLevel === "medium") {
         currentType = mediumType.value;
-        totalQuestions = 10;
+        totalQuestions = 20;
         gameTime = 5;
     }
 
@@ -259,10 +259,8 @@ function nextQuestion() {
 
     // Jika semua soal sudah selesai
     if (currentQuestion >= totalQuestions) {
-
         finishGame();
         return;
-
     }
 
     currentQuestion++;
@@ -276,24 +274,33 @@ function nextQuestion() {
 
     currentAnswer = question.answer;
 
-    // TAMPILKAN SOAL DI DALAM KOTAK
+    // TAMPILKAN SOAL
     questionText.textContent =
         `${question.a} × ${question.b} = ?`;
 
-    // RESET INPUT
+    // Reset tampilan
     answerInput.value = "";
     answerInput.disabled = false;
+
     feedback.classList.add("hidden");
     nextButton.classList.add("hidden");
     answerSection.style.display = "block";
-    answerInput.focus();
 
-    // TIMER
+    // TIMER HANYA UNTUK MELIHAT SOAL
     if (currentLevel === "medium" ||
         currentLevel === "custom") {
-        startTimer();
-    }
 
+        questionText.style.visibility = "visible";
+        startTimer();
+
+    } else {
+
+        // Easy langsung bisa menjawab
+        questionText.style.visibility = "visible";
+        answerSection.style.display = "block";
+        answerInput.focus();
+
+    }
 }
 
 
@@ -315,123 +322,98 @@ function startTimer() {
 
 // WAKTU HABIS
 function timeUp() {
+    clearInterval(timerInterval);
 
-    answerInput.disabled = true;
+    // Sembunyikan soal setelah waktu habis
+    questionText.style.visibility = "hidden";
 
-    wrong++;
+    // Tampilkan bagian jawaban
+    answerSection.style.display = "block";
 
-    feedback.textContent =
-        `⏰ Waktu habis! Jawaban: ${currentAnswer}`;
-
-    feedback.classList.remove("hidden");
-
-    nextButton.classList.remove("hidden");
+    // User tetap bisa mengetik tanpa batas waktu
+    answerInput.disabled = false;
+    answerInput.focus();
 
 }
-
 
 // CEK JAWABAN
 function checkAnswer() {
-
     clearInterval(timerInterval);
 
-    const userAnswer =
-        Number(answerInput.value);
-
-
-    // Jangan proses kalau kosong
     if (answerInput.value.trim() === "") {
-
         feedback.textContent =
             "⚠️ Masukkan jawaban terlebih dahulu!";
-
         feedback.classList.remove("hidden");
+        return;
+    }
+
+    const userAnswer = Number(answerInput.value);
+
+    if (userAnswer === currentAnswer) {
+        correct++;
+        score += 10;
+    } else {
+        wrong++;
+    }
+
+    scoreDisplay.textContent = `⭐ ${score}`;
+
+    // HANYA MEDIUM → langsung lanjut
+    if (currentLevel === "medium") {
+
+        if (currentQuestion >= totalQuestions) {
+            finishGame();
+        } else {
+            nextQuestion();
+        }
 
         return;
-
     }
 
-
+    // EASY & CUSTOM → tampilkan hasil
     answerInput.disabled = true;
 
-    // BENAR
     if (userAnswer === currentAnswer) {
-
-        correct++;
-
-        score += 10;
-
-        feedback.textContent =
-            "✅ Benar!";
-
-    }
-
-    // SALAH
-    else {
-
-        wrong++;
-
+        feedback.textContent = "✅ Benar!";
+    } else {
         feedback.textContent =
             `❌ Salah! Jawaban yang benar: ${currentAnswer}`;
-
     }
 
-
     feedback.classList.remove("hidden");
-
-    scoreDisplay.textContent =
-        `⭐ ${score}`;
-
     nextButton.classList.remove("hidden");
-
 }
 
-// SELESAI GAME
 function finishGame() {
 
     clearInterval(timerInterval);
 
     gamePage.classList.add("hidden");
-
     resultPage.classList.remove("hidden");
 
-
-    // Score
     finalScore.textContent = score;
-
-    // Benar
     correctCount.textContent = correct;
-
-    // Salah
     wrongCount.textContent = wrong;
 
+    const totalAnswered = correct + wrong;
 
-    // Akurasi
-    const accuracyValue =
-        totalQuestions > 0
-            ? Math.round(
-                (correct / totalQuestions) * 100
-            )
-            : 0;
+    const accuracyValue = totalAnswered > 0
+        ? Math.round((correct / totalAnswered) * 100)
+        : 0;
 
-    accuracy.textContent =
-        `${accuracyValue}%`;
-
+    accuracy.textContent = `${accuracyValue}%`;
 }
-
 
 // MAIN LAGI
 function restartGame() {
 
     resultPage.classList.add("hidden");
-
     settingPage.classList.remove("hidden");
 
     // Tampilkan setting sesuai level sebelumnya
     easySetting.classList.add("hidden");
     mediumSetting.classList.add("hidden");
     customSetting.classList.add("hidden");
-
 
     if (currentLevel === "easy") {
 
@@ -441,14 +423,11 @@ function restartGame() {
     }
 
     else if (currentLevel === "medium") {
-
         settingTitle.textContent = "Medium";
         mediumSetting.classList.remove("hidden");
-
     }
 
     else {
-
         settingTitle.textContent = "Custom";
         customSetting.classList.remove("hidden");
 
@@ -471,10 +450,30 @@ function goHome() {
 
 
 // ENTER = JAWAB
-answerInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        if (!answerInput.disabled) {
-            checkAnswer();
-        }
+answerInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !answerInput.disabled) {
+        e.preventDefault();
+        checkAnswer();
     }
 });
+
+// BACK
+function goBack() {
+
+    // Kalau sedang di SETTING
+    if (!document.getElementById("settingPage").classList.contains("hidden")) {
+
+        document
+            .getElementById("settingPage")
+            .classList.add("hidden");
+
+        document
+            .getElementById("homePage")
+            .classList.remove("hidden");
+
+        return;
+    }
+
+    // Kalau sedang di MENU UTAMA
+    window.location.href = "../../index.html";
+}

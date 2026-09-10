@@ -10,10 +10,9 @@
 
 <body>
     <!-- KEMBALI KE PORTFOLIO -->
-    <a href="../../index.html" class="portfolio-back">
-        ← Back
-    </a>
-
+    <a href="#" class="portfolio-back" id="portfolioBack" onclick="goBack()">
+    ← Back
+</a>
 
     <!--HALAMAN UTAMA-->
 
@@ -47,10 +46,7 @@
 
 
                 <!-- MEDIUM -->
-                <button
-                    class="level-card"
-                    onclick="selectLevel('medium')"
-                >
+                <button class="level-card" onclick="selectLevel('medium')">
                     <span class="level-icon">
                         <img src="img_perkalian/medium.png" alt="Medium">
                     </span>
@@ -378,7 +374,7 @@
                 class="next-button hidden"
                 onclick="nextQuestion()"
             >
-                Lanjut →
+                Lanjut
             </button>
 
             <!-- FINISH -->

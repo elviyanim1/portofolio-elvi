@@ -600,6 +600,28 @@ function goHome() {
 }
 
 
+// BACK
+function goBack() {
+
+    // Kalau sedang di SETTING
+    if (!document.getElementById("settingPage").classList.contains("hidden")) {
+
+        document
+            .getElementById("settingPage")
+            .classList.add("hidden");
+
+        document
+            .getElementById("homePage")
+            .classList.remove("hidden");
+
+        return;
+    }
+
+    // Kalau sedang di MENU UTAMA
+    window.location.href = "../../index.html";
+}
+
+
 
 // ENTER = JAWAB
 document
