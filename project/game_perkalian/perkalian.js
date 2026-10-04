@@ -227,9 +227,7 @@ function generateQuestion(type) {
 
     }
 
-    // ==========================
     // 2 DIGIT × 2 DIGIT
-
     else if (type === "2dx2d") {
         a = randomNumber(10, 99);
         b = randomNumber(10, 99);
@@ -240,9 +238,7 @@ function generateQuestion(type) {
         // Default
         a = randomNumber(1, 9);
         b = randomNumber(1, 9);
-
     }
-
 
     return {
         a: a,

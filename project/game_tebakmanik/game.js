@@ -96,9 +96,7 @@ function selectLevel(level) {
     // CUSTOM
 
     else if (level === "custom") {
-
         title.textContent = "Custom";
-
         document
             .getElementById("customSetting")
             .classList.remove("hidden");
@@ -109,40 +107,28 @@ function selectLevel(level) {
 
 // MULAI GAME
 function startGame() {
-
     clearInterval(timerInterval);
-
     // EASY
     if (selectedLevel === "easy") {
-
         selectedType =
             document.getElementById("easyType").value;
-
         totalQuestions = 10;
-
         selectedTime = 0;
 
     }
 
     // MEDIUM
     else if (selectedLevel === "medium") {
-
         selectedType =
             document.getElementById("mediumType").value;
-
         totalQuestions = 20;
-
         selectedTime = 5;
-
     }
 
     // CUSTOM
     else if (selectedLevel === "custom") {
-
         selectedType =
             document.getElementById("customType").value;
-
-
         totalQuestions =
             Number(
                 document.getElementById("questionCount").value
@@ -169,7 +155,6 @@ function startGame() {
                     question.answer >= 1 &&
                     question.answer <= 9
             );
-
     }
 
     // PULUHAN
@@ -181,21 +166,16 @@ function startGame() {
                     question.answer >= 10 &&
                     question.answer <= 99
             );
-
     }
 
    // MIX
     else if (selectedType === "mix") {
-
         availableQuestions =
             questions;
-
     }
 
     // BUAT SOAL RANDOM
     gameQuestions = [];
-
-
     for (
         let i = 0;
         i < totalQuestions;
@@ -217,26 +197,18 @@ function startGame() {
 
     // RESET GAME
     currentQuestion = 0;
-
     score = 0;
-
     correct = 0;
-
     wrong = 0;
 
     // PINDAH KE GAME
     document
         .getElementById("settingPage")
         .classList.add("hidden");
-
-
     document
         .getElementById("gamePage")
         .classList.remove("hidden");
-
-
     updateScore();
-
     showQuestion();
 
 }
@@ -245,159 +217,108 @@ function startGame() {
 function showQuestion() {
 
     clearInterval(timerInterval);
-
-
     const question =
         gameQuestions[currentQuestion];
 
-
-
     // Nomor soal
-
     document
         .getElementById("questionNumber")
         .textContent =
         `Soal ${currentQuestion + 1} / ${totalQuestions}`;
 
-
-
     // Gambar
-
     document
         .getElementById("questionImage")
         .src = question.image;
-
-
 
     // Input
 
     const input =
         document.getElementById("answerInput");
-
-
     input.value = "";
-
     input.disabled = false;
 
-
-
     // Tombol jawab
-
     document
         .querySelector(".answer-button")
         .disabled = false;
-
-
 
     // Feedback
     document
         .getElementById("feedback")
         .classList.add("hidden");
 
-
-
     // Tombol next
-
     document
         .getElementById("nextButton")
         .classList.add("hidden");
 
-
-
     // Gambar terlihat
-
     document
         .getElementById("questionImage")
         .style.visibility = "visible";
 
     // EASY
     if (selectedLevel === "easy") {
-
         document
             .getElementById("timerContainer")
             .classList.add("hidden");
-
         return;
-
     }
 
     // MEDIUM / CUSTOM
     document
         .getElementById("timerContainer")
         .classList.remove("hidden");
-
-
     startImageTimer();
 
 }
 
 // TIMER
 function startImageTimer() {
-
     let remainingTime = selectedTime;
-
-
     const timer =
         document.getElementById("timer");
-
-
     timer.textContent =
         remainingTime;
-
-
-
     timerInterval =
         setInterval(() => {
             remainingTime--;
-
             timer.textContent =
                 remainingTime;
-
             if (remainingTime <= 0) {
                 clearInterval(timerInterval);
-
                 document
                     .getElementById("questionImage")
                     .style.visibility = "hidden";
             }
-
         }, 1000);
 }
 // CEK JAWABAN
 function checkAnswer() {
-
     const input =
         document.getElementById("answerInput");
-
-
     // Tidak boleh kosong
     if (input.value.trim() === "") {
         alert("Silakan masukkan jawaban.");
         return;
     }
-
     const userAnswer =
         Number(input.value);
-
     const correctAnswer =
         gameQuestions[currentQuestion].answer;
-
     // Stop timer
     clearInterval(timerInterval);
-
     // Disable input
     input.disabled = true;
-
     document
         .querySelector(".answer-button")
         .disabled = true;
-
     // BENAR
     if (userAnswer === correctAnswer) {
         correct++;
         // 1 soal = 10 poin
         score += 10;
-
         showFeedback(
             `BENAR! Jawabannya ${correctAnswer}`,
             true
@@ -416,129 +337,85 @@ function checkAnswer() {
 
     }
 
-
     updateScore();
-
     // EASY
     if (selectedLevel === "easy") {
 
         document
             .getElementById("nextButton")
             .classList.remove("hidden");
-
         return;
 
     }
 
     // MEDIUM / CUSTOM
     setTimeout(() => {
-
         nextQuestion();
-
     }, 1000);
 
 }
 
 // FEEDBACK
 function showFeedback(message, isCorrect) {
-
     const feedback =
         document.getElementById("feedback");
-
-
     feedback.textContent =
         message;
-
-
     feedback.classList.remove("hidden");
-
 }
 
 
 // NEXT QUESTION
 function nextQuestion() {
-
     currentQuestion++;
-
-
     if (
         currentQuestion >= totalQuestions
     ) {
-
         showResult();
-
         return;
-
     }
-
-
     showQuestion();
-
 }
 
 // SELESAI
 function finishGame() {
-
     clearInterval(timerInterval);
-
     showResult();
-
 }
 
 // UPDATE SCORE
 function updateScore() {
-
     document
         .getElementById("score")
         .textContent =
         `⭐ ${score}`;
-
 }
 
 
 // HASIL
 function showResult() {
-
     clearInterval(timerInterval);
-
-
     document
         .getElementById("gamePage")
         .classList.add("hidden");
-
-
     document
         .getElementById("resultPage")
         .classList.remove("hidden");
 
-
-
     // Score
-
     document
         .getElementById("finalScore")
         .textContent = score;
-
-
-
     // Benar
-
     document
         .getElementById("correctCount")
         .textContent = correct;
-
-
-
     // Salah
-
     document
         .getElementById("wrongCount")
         .textContent = wrong;
 
-
-
     // Akurasi
-
     const accuracy =
         totalQuestions === 0
             ? 0
@@ -546,12 +423,10 @@ function showResult() {
                 (correct / totalQuestions) * 100
             );
 
-
     document
         .getElementById("accuracy")
         .textContent =
         `${accuracy}%`;
-
 }
 
 // MAIN LAGI
@@ -560,13 +435,9 @@ function restartGame() {
     document
         .getElementById("resultPage")
         .classList.add("hidden");
-
-
     document
         .getElementById("gamePage")
         .classList.remove("hidden");
-
-
     startGame();
 
 }
@@ -574,47 +445,32 @@ function restartGame() {
 
 // KEMBALI KE HOME
 function goHome() {
-
     clearInterval(timerInterval);
-
-
     document
         .getElementById("settingPage")
         .classList.add("hidden");
-
-
     document
         .getElementById("gamePage")
         .classList.add("hidden");
-
-
     document
         .getElementById("resultPage")
         .classList.add("hidden");
-
-
     document
         .getElementById("homePage")
         .classList.remove("hidden");
-
 }
-
-
 // BACK
 function goBack() {
-
     // Kalau sedang di SETTING
     if (!document.getElementById("settingPage").classList.contains("hidden")) {
-
         document
             .getElementById("settingPage")
             .classList.add("hidden");
-
         document
             .getElementById("homePage")
             .classList.remove("hidden");
 
-        return;
+            return;
     }
 
     // Kalau sedang di MENU UTAMA
@@ -631,10 +487,7 @@ document
         function(event) {
 
             if (event.key === "Enter") {
-
                 checkAnswer();
-
             }
-
         }
     );
