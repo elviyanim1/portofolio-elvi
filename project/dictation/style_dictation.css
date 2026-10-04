@@ -136,6 +136,7 @@ select {
     font-weight: bold;
     min-height: 25px;
 }
+
 @media (max-width: 700px) {
 
     .page {
@@ -145,6 +146,7 @@ select {
         align-items: center;
         justify-content: flex-start;
         padding: 20px 20px 30px;
+        background: #ffff;
     }
 
     .page > div {
