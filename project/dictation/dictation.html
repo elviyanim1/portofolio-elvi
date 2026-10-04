@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dictation </title>
+
+    <link rel="stylesheet" href="style_dictation.css">
+</head>
+
+<body class="page">
+    <a href="../../index.html" class="portfolio-back">
+    ← Back </a>
+    <div>
+          <h1>Dictation</h1>
+    
+        <div class="pengaturan"> 
+        <label>Jenis Soal</label>
+        <select id="jenissoal">
+            <option value="1d">1d</option>
+            <option value="1d-2d">1d-2d</option>
+            <option value="2d">2d</option>
+            <option value="3d">3d</option>
+        </select>
+
+        <label>Jumlah Baris</label>
+        <select id="jumlahbaris">
+            <option value="5">5b</option>
+            <option value="7">7b</option>
+            <option value="10">10b</option>
+            <option value="15">15b</option>
+        </select>
+
+        <label>Waktu Tampil</label>
+        <select id="waktutampil">
+            <option value="0.5">0.5 detik</option>
+            <option value="1">1 detik</option>
+            <option value="1.5">1.5 detik</option>
+            <option value="2">2 detik</option>
+            <option value="3">3 detik</option>
+            <option value="5">5 detik</option>
+        </select>
+        <button id="mulai">Mulai</button>
+        </div>
+    <div id="angka">0</div>
+    
+    <div id="jawaban" style="display: none;">
+        <label for="inputjawaban">Jawaban:</label>
+        <input type="number" id="inputjawaban">
+        <button id="cek">Cek Jawaban</button>
+        <div id="hasil"></div>
+    </div>
+    
+    </div>
+    </div>
+<script src="dictation.js"></script>
+</body>
+</html>

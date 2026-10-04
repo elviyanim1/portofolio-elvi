@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #c5dcfc;
+}
+
+.portfolio-back {
+    position: fixed;
+    top: 25px;
+    left: 30px;
+
+    text-decoration: none;
+    color: #1f2933;
+    font-weight: 600;
+
+    padding: 10px 16px;
+    border-radius: 10px;
+
+    background: white;
+    border: 1px solid #ddd;
+
+    transition: 0.2s;
+
+    z-index: 10;
+}
+
+.portfolio-back:hover {
+    transform: translateX(-3px);
+}
+
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.page > div {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0 0 35px;
+    font-size: 32px;
+}
+
+/* Pengaturan */
+.pengaturan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.pengaturan label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+select {
+    padding: 9px 12px;
+    font-size: 14px;
+    border: 1px solid #5c99ed;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+}
+
+/* Tombol Mulai */
+#mulai {
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #234a82;
+    color: white;
+}
+
+#mulai:hover {
+    opacity: 0.85;
+}
+
+/* Angka */
+#angka {
+    font-size: 210px;
+    font-weight: bold;
+    margin: 40px 0;
+    min-height: 85px;
+}
+
+/* Jawaban */
+#jawaban {
+    margin-top: 25px;
+}
+
+#inputjawaban {
+    width: 120px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#cek {
+    padding: 10px 20px;
+    margin-left: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #234a82;
+    color: white;
+}
+
+#cek:hover {
+    opacity: 0.85;
+}
+
+#hasil {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 25px;
+}
