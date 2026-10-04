@@ -140,8 +140,13 @@ select {
 @media (max-width: 700px) {
 
     .page {
-        justify-content: flex-start;
-        padding: 10px 10px 10px;
+        .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start !important;
+    padding: 20px 20px 30px !important;
     }
 
     .page > div {
