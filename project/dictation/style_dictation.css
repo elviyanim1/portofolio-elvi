@@ -137,49 +137,53 @@ select {
     min-height: 25px;
 }
 
-
 @media (max-width: 576px) {
 
     .page {
-        padding: 20px 15px;
+        justify-content: flex-start;
+        padding: 50px 20px 30px;
+    }
+
+    .page > div {
+        width: 100%;
     }
 
     h1 {
-        font-size: 26px;
-        margin-bottom: 25px;
+        font-size: 30px;
+        margin-bottom: 35px;
     }
 
     .pengaturan {
-        flex-direction: column;
-        gap: 8px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 12px;
+        margin-bottom: 25px;
     }
 
     .pengaturan label {
         margin-left: 0;
+        font-size: 14px;
     }
 
     select {
-        width: 150px;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
     }
 
     #mulai {
-        margin-top: 10px;
+        margin-top: 5px;
+        padding: 12px 35px;
+        font-size: 16px;
     }
 
     #angka {
-        font-size: 100px;
-        margin: 30px 0;
+        font-size: 150px;
+        margin: 55px 0;
+        min-height: 120px;
     }
 
     #jawaban {
-        margin-top: 15px;
-    }
-
-    #inputjawaban {
-        width: 100px;
-    }
-
-    #cek {
-        margin-left: 5px;
+        margin-top: 20px;
     }
 }
